@@ -3,4 +3,4 @@
 *.js linguist-detectable=false
 *.html linguist-detectable=false  
 *.xlsx linguist-detectable=false 
-*.golinguist-detectable=true
+*.go linguist-detectable=true

@@ -1,4 +1,2 @@
-*.html linguist-detectable=false
-*.js linguist-detectable=false
-*.scss linguist-detectable=false
-*.css linguist-detectable=false
+gigaTrace/static/* linguist-vendored
+gtServer/static/* linguist-vendored

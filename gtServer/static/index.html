@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>gigaTrace &amp; Dashboard</title>
+
+
+
+
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Fonts and OneUI framework -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" id="css-main" href="assets/css/oneui.min.css">
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css"> -->
+    <!-- END Stylesheets -->
+
+
+  </head>
+  <body>
+    <!-- Page Container -->
+    <!--
+        Available classes for #page-container:
+
+    GENERIC
+
+      'remember-theme'                            Remembers active color theme and dark mode between pages using localStorage when set through
+                                                  - Theme helper buttons [data-toggle="theme"],
+                                                  - Layout helper buttons [data-toggle="layout" data-action="dark_mode_[on/off/toggle]"]
+                                                  - ..and/or One.layout('dark_mode_[on/off/toggle]')
+
+    SIDEBAR & SIDE OVERLAY
+
+      'sidebar-r'                                 Right Sidebar and left Side Overlay (default is left Sidebar and right Side Overlay)
+      'sidebar-mini'                              Mini hoverable Sidebar (screen width > 991px)
+      'sidebar-o'                                 Visible Sidebar by default (screen width > 991px)
+      'sidebar-o-xs'                              Visible Sidebar by default (screen width < 992px)
+      'sidebar-dark'                              Dark themed sidebar
+
+      'side-overlay-hover'                        Hoverable Side Overlay (screen width > 991px)
+      'side-overlay-o'                            Visible Side Overlay by default
+
+      'enable-page-overlay'                       Enables a visible clickable Page Overlay (closes Side Overlay on click) when Side Overlay opens
+
+      'side-scroll'                               Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (screen width > 991px)
+
+    HEADER
+
+      ''                                          Static Header if no class is added
+      'page-header-fixed'                         Fixed Header
+
+    HEADER STYLE
+
+      ''                                          Light themed Header
+      'page-header-dark'                          Dark themed Header
+
+    MAIN CONTENT LAYOUT
+
+      ''                                          Full width Main Content if no class is added
+      'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
+      'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
+
+    DARK MODE
+
+      'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
+    -->
+    <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
+      <!-- Side Overlay-->
+      <!-- END Side Overlay -->
+
+
+      <!-- Sidebar -->
+      <!--
+          Sidebar Mini Mode - Display Helper classes
+
+          Adding 'smini-hide' class to an element will make it invisible (opacity: 0) when the sidebar is in mini mode
+          Adding 'smini-show' class to an element will make it visible (opacity: 1) when the sidebar is in mini mode
+              If you would like to disable the transition animation, make sure to also add the 'no-transition' class to your element
+
+          Adding 'smini-hidden' to an element will hide it when the sidebar is in mini mode
+          Adding 'smini-visible' to an element will show it (display: inline-block) only when the sidebar is in mini mode
+          Adding 'smini-visible-block' to an element will show it (display: block) only when the sidebar is in mini mode
+      -->
+      <nav id="sidebar" aria-label="Main Navigation">
+        <!-- Side Header -->
+        <div class="content-header">
+          <!-- Logo -->
+          <a class="fw-semibold text-dual" href="index.html">
+            <span class="smini-visible">
+              <i class="fa fa-circle-notch text-primary"></i>
+            </span>
+            <span class="smini-hide fs-5 tracking-wider">giga<span class="fw-normal">Trace</span></span>
+          </a>
+          <!-- END Logo -->
+
+          <!-- Extra -->
+          <div>
+            <!-- Dark Mode -->
+            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="dark_mode_toggle">
+              <i class="far fa-moon"></i>
+            </button>
+            <!-- END Dark Mode -->
+
+            <!-- Options -->
+            <div class="dropdown d-inline-block ms-1">
+              <button type="button" class="btn btn-sm btn-alt-secondary" id="sidebar-themes-dropdown" onclick="window.open(`localhost:8081`);">
+                <i class="far fa-circle"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end fs-sm smini-hide border-0" aria-labelledby="sidebar-themes-dropdown">
+                <!-- Color Themes -->
+                <!-- Layout API, functionality initialized in Template._uiHandleTheme() -->
+                <a class="dropdown-item d-flex align-items-center justify-content-between fw-medium" data-toggle="theme" data-theme="default" href="#">
+                  <span>Default</span>
+                  <i class="fa fa-circle text-default"></i>
+                </a>
+                <!-- END Color Themes -->
+                <!-- END Sidebar Styles -->
+
+                <div class="dropdown-divider"></div>
+
+                <!-- Header Styles -->
+                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                <a class="dropdown-item fw-medium" data-toggle="layout" data-action="header_style_light" href="javascript:void(0)">
+                  <span>Header Light</span>
+                </a>
+                <a class="dropdown-item fw-medium" data-toggle="layout" data-action="header_style_dark" href="javascript:void(0)">
+                  <span>Header Dark</span>
+                </a>
+                <!-- END Header Styles -->
+              </div>
+            </div>
+            <!-- END Options -->
+
+            <!-- Close Sidebar, Visible only on mobile screens -->
+            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+            <a class="d-lg-none btn btn-sm btn-alt-secondary ms-1" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
+              <i class="fa fa-fw fa-times"></i>
+            </a>
+            <!-- END Close Sidebar -->
+          </div>
+          <!-- END Extra -->
+        </div>
+        <!-- END Side Header -->
+
+        <!-- Sidebar Scrolling -->
+        <div class="js-sidebar-scroll">
+          <!-- Side Navigation -->
+          <div class="content-side">
+            <ul class="nav-main">
+              <li class="nav-main-item">
+                <a class="nav-main-link active" href="index.html">
+                  <i class="nav-main-link-icon si si-speedometer"></i>
+                  <span class="nav-main-link-name">Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-main-heading">Track&Trace</li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="location.html">
+                  <i class="nav-main-link-icon si si-energy"></i>
+                  <span class="nav-main-link-name">By Location</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="number.html">
+                  <i class="nav-main-link-icon si si-energy"></i>
+                  <span class="nav-main-link-name">By Number</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="imei.html">
+                  <i class="nav-main-link-icon si si-energy"></i>
+                  <span class="nav-main-link-name">By IMEI</span>
+                </a>
+              </li>
+              <li class="nav-main-heading">Contact Analysis</li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="mcontacted.html">
+                  <i class="nav-main-link-icon si si-energy"></i>
+                  <span class="nav-main-link-name">Most Contacted</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="ccontacted.html">
+                  <i class="nav-main-link-icon si si-energy"></i>
+                  <span class="nav-main-link-name">Common Contacted</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="international.html">
+                  <i class="nav-main-link-icon si si-energy"></i>
+                  <span class="nav-main-link-name">International Contacts</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="sms.html">
+                  <i class="nav-main-link-icon si si-energy"></i>
+                  <span class="nav-main-link-name">SMS Analysis</span>
+                </a>
+              </li>
+              <li class="nav-main-heading">Graphs</li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="graph.html">
+                  <i class="nav-main-link-icon si si-layers"></i>
+                  <span class="nav-main-link-name">Deep Contact Graph</span>
+                </a>
+              </li>
+              <li class="nav-main-heading">Quick Search</li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="quicksearch.html">
+                  <i class="nav-main-link-icon si si-layers"></i>
+                  <span class="nav-main-link-name">Q-Search</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="socsearch.html">
+                  <i class="nav-main-link-icon si si-layers"></i>
+                  <span class="nav-main-link-name">Social Search</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- END Side Navigation -->
+        </div>
+        <!-- END Sidebar Scrolling -->
+      </nav>
+      <!-- END Sidebar -->
+
+      <!-- Header -->
+      <header id="page-header">
+        <!-- Header Content -->
+        <div class="content-header">
+          <!-- Left Section -->
+          <div class="d-flex align-items-center">
+            <!-- Toggle Sidebar -->
+            <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
+            <button type="button" class="btn btn-sm btn-alt-secondary me-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
+              <i class="fa fa-fw fa-bars"></i>
+            </button>
+            <!-- END Toggle Sidebar -->
+          </div>
+          <!-- END Left Section -->
+
+          <!-- Right Section -->
+          <div class="d-flex align-items-center">
+            <!-- User Dropdown -->
+            <div class="dropdown d-inline-block ms-2">
+              <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="rounded-circle" src="assets/media/avatars/avatar10.jpg" alt="Header Avatar" style="width: 21px;">
+                <span class="d-none d-sm-inline-block ms-2">Danish</span>
+                <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block opacity-50 ms-1 mt-1"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
+                <div class="p-3 text-center bg-body-light border-bottom rounded-top">
+                  <img class="img-avatar img-avatar48 img-avatar-thumb" src="assets/media/avatars/avatar10.jpg" alt="">
+                  <p class="mt-2 mb-0 fw-medium">Danish Joshi</p>
+                  <p class="mb-0 text-muted fs-sm fw-medium">Agent</p>
+                </div>
+                <div class="p-2">
+                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                    <span class="fs-sm fw-medium">Settings</span>
+                  </a>
+                </div>
+                <div role="separator" class="dropdown-divider m-0"></div>
+                <div class="p-2">
+                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_signin.html">
+                    <span class="fs-sm fw-medium">Log Out</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- END User Dropdown -->
+
+            <!-- Toggle Side Overlay -->
+            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+            <!-- END Toggle Side Overlay -->
+          </div>
+          <!-- END Right Section -->
+        </div>
+        <!-- END Header Content -->
+
+        <!-- Header Search -->
+        <div id="page-header-search" class="overlay-header bg-body-extra-light">
+          <div class="content-header">
+            <form class="w-100" action="be_pages_generic_search.html" method="POST">
+              <div class="input-group">
+                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                <button type="button" class="btn btn-alt-danger" data-toggle="layout" data-action="header_search_off">
+                  <i class="fa fa-fw fa-times-circle"></i>
+                </button>
+                <input type="text" class="form-control" placeholder="Search or hit ESC.." id="page-header-search-input" name="page-header-search-input">
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- END Header Search -->
+
+        <!-- Header Loader -->
+        <!-- Please check out the Loaders page under Components category to see examples of showing/hiding it -->
+        <div id="page-header-loader" class="overlay-header bg-body-extra-light">
+          <div class="content-header">
+            <div class="w-100 text-center">
+              <i class="fa fa-fw fa-circle-notch fa-spin"></i>
+            </div>
+          </div>
+        </div>
+        <!-- END Header Loader -->
+      </header>
+      <!-- END Header -->
+
+      <!-- Main Container -->
+      <main id="main-container">
+        <!-- Hero -->
+        <div class="content">
+          <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-2 text-center text-md-start">
+            <div class="flex-grow-1 mb-1 mb-md-0">
+              <h1 class="h3 fw-bold mb-2">
+                Dashboard
+              </h1>
+              <h2 class="h6 fw-medium fw-medium text-muted mb-0">
+                Welcome <a class="fw-semibold" href="">Danish</a>, everything looks great.
+              </h2>
+            </div>
+            <div class="mt-3 mt-md-0 ms-md-3 space-x-1">
+              <div class="dropdown d-inline-block">
+                <button type="button" class="btn btn-sm btn-alt-secondary space-x-1" id="dropdown-analytics-overview" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-fw fa-calendar-alt opacity-50"></i>
+                  <span>All time</span>
+                  <i class="fa fa-fw fa-angle-down"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end fs-sm" aria-labelledby="dropdown-analytics-overview">
+                  <a class="dropdown-item fw-medium" href="javascript:void(0)">Last 30 days</a>
+                  <a class="dropdown-item fw-medium" href="javascript:void(0)">Last month</a>
+                  <a class="dropdown-item fw-medium" href="javascript:void(0)">Last 3 months</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item fw-medium" href="javascript:void(0)">This year</a>
+                  <a class="dropdown-item fw-medium" href="javascript:void(0)">Last Year</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                    <span>All time</span>
+                    <i class="fa fa-check"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Hero -->
+
+        <!-- Page Content -->
+        <div class="content">
+          <!-- Overview -->
+          <div class="row items-push">
+            <div class="col-sm-6 col-xxl-3">
+              <!-- Pending Orders -->
+              <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
+                  <dl class="mb-0">
+                    <dt class="fs-3 fw-bold">8,00,011</dt>
+                    <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Total Records</dd>
+                  </dl>
+                  <div class="item item-rounded-lg bg-body-light">
+                    <i class="far fa-gem fs-3 text-primary"></i>
+                  </div>
+                </div>
+                <div class="bg-body-light rounded-bottom">
+                  <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                    <span>View Latest Records</span>
+                    <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- END Pending Orders -->
+            </div>
+            <div class="col-sm-6 col-xxl-3">
+              <!-- New Customers -->
+              <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
+                  <dl class="mb-0">
+                    <dt class="fs-3 fw-bold">0</dt>
+                    <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Open Cases</dd>
+                  </dl>
+                  <div class="item item-rounded-lg bg-body-light">
+                    <i class="far fa-user-circle fs-3 text-primary"></i>
+                  </div>
+                </div>
+                <div class="bg-body-light rounded-bottom">
+                  <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                    <span>View all Cases</span>
+                    <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- END New Customers -->
+            </div>            
+          </div>
+          <!-- END Overview -->
+          <h2 class="h4 fw-bold mb-2">
+            Cell Towers in the database
+          </h2>
+          <div id="map" style="height: 500px; width: 1000px;"></div>
+
+        </div>
+        
+        <!-- END Page Content -->
+      </main>
+      <!-- END Main Container -->
+
+      <!-- Footer -->
+      <footer id="page-footer" class="bg-body-light">
+        <div class="content py-3">
+          <div class="row fs-sm">
+            <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+              <a class="fw-semibold" href="https://danishjoshi.com" target="_blank">gigaTrace</a> &copy; <span data-toggle="year-copy"></span>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- END Footer -->
+    </div>
+    <!-- END Page Container -->
+
+    <!--
+        OneUI JS
+
+        Core libraries and functionality
+        webpack is putting everything together at assets/_js/main/app.js
+    -->
+    <script src="assets/js/oneui.app.min.js"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="assets/js/plugins/chart.js/chart.min.js"></script>
+
+    <!-- Page JS Code -->
+    <script src="assets/js/pages/be_pages_dashboard.min.js"></script>
+
+    <script src="assets/js/dash.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<gplaces-api-key-here>&libraries=places&callback=initMap&v=weekly" defer></script>
+
+  </body>
+</html>

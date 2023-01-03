@@ -1,0 +1,45 @@
+//
+// Buttons
+// --------------------------------------------------
+
+// Fix simple icon position
+.btn .si {
+  position: relative;
+  top: 1px;
+}
+
+// Variant buttons
+.btn-secondary {
+  @include button-variant($primary-dark, $primary-dark);
+}
+
+// Alternate variant buttons
+.btn-alt-primary {
+  @include button-variant(tint-color($primary, 75%), tint-color($primary, 75%), shade-color($primary, 40%), tint-color($primary, 50%), tint-color($primary, 50%), shade-color($primary, 60%));
+}
+
+.btn-alt-secondary {
+  @include button-variant($body-bg, $body-bg, $body-color-dark, shade-color($body-bg, 10%), shade-color($body-bg, 10%), shade-color($body-color-dark, 15%));
+}
+
+.btn-alt-success {
+  @include button-variant(tint-color($success, 75%), tint-color($success, 75%), shade-color($success, 40%), tint-color($success, 50%), tint-color($success, 50%), shade-color($success, 60%));
+}
+
+.btn-alt-info {
+  @include button-variant(tint-color($info, 75%), tint-color($info, 75%), shade-color($info, 40%), tint-color($info, 50%), tint-color($info, 50%), shade-color($info, 60%));
+}
+
+.btn-alt-warning {
+  @include button-variant(tint-color($warning, 75%), tint-color($warning, 75%), shade-color($warning, 40%), tint-color($warning, 50%), tint-color($warning, 50%), shade-color($warning, 60%));
+}
+
+.btn-alt-danger {
+  @include button-variant(tint-color($danger, 75%), tint-color($danger, 75%), shade-color($danger, 40%), tint-color($danger, 50%), tint-color($danger, 50%), shade-color($danger, 60%));
+}
+
+// Alternate secondary adapts on dark header/sidebar
+.page-header-dark #page-header .btn-alt-secondary,
+.sidebar-dark #sidebar .btn-alt-secondary {
+  @include button-variant(lighten($primary-darker, 5%), lighten($primary-darker, 5%), $white, darken($primary-darker, 5%), darken($primary-darker, 5%), $white);
+}

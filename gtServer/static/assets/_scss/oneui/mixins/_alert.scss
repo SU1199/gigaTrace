@@ -1,0 +1,19 @@
+@mixin alert-variant($background, $border, $color, $shadow: true) {
+  color: $color;
+  @include gradient-bg($background);
+  border-color: $border;
+
+  @if $shadow {
+    box-shadow: 0 0.125rem darken($background, 5%);
+  } @else {
+    box-shadow: none;
+  }
+
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+
+  .alert-link {
+    color: darken($color, 10%);
+  }
+}

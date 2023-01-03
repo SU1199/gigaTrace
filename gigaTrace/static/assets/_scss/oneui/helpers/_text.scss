@@ -1,0 +1,90 @@
+//
+// Text
+// --------------------------------------------------
+
+// Contextual colors
+@include text-emphasis-variant(".text-primary", $primary);
+@include text-emphasis-variant(".text-primary-dark", $primary-dark);
+@include text-emphasis-variant(".text-primary-darker", $primary-darker);
+@include text-emphasis-variant(".text-primary-light", $primary-light);
+@include text-emphasis-variant(".text-primary-lighter", $primary-lighter);
+
+@include text-emphasis-variant(".text-success", $success);
+@include text-emphasis-variant(".text-success-light", $success-light);
+@include text-emphasis-variant(".text-warning", $warning);
+@include text-emphasis-variant(".text-warning-light", $warning-light);
+@include text-emphasis-variant(".text-info", $info);
+@include text-emphasis-variant(".text-info-light", $info-light);
+@include text-emphasis-variant(".text-danger", $danger);
+@include text-emphasis-variant(".text-danger-light", $danger-light);
+
+@include text-emphasis-variant(".text-body-bg", $body-bg);
+@include text-emphasis-variant(".text-body-bg-dark", $body-bg-dark);
+@include text-emphasis-variant(".text-body-bg-light", $body-bg-light);
+@include text-emphasis-variant(".text-body-color", $body-color);
+@include text-emphasis-variant(".text-body-color-dark", $body-color-dark);
+@include text-emphasis-variant(".text-body-color-light", $body-color-light);
+
+@include text-emphasis-variant(".text-muted", $text-muted);
+@include text-emphasis-variant(".text-white", $white);
+@include text-emphasis-variant(".text-white-50", rgba($white, 0.5));
+@include text-emphasis-variant(".text-white-75", rgba($white, 0.75));
+@include text-emphasis-variant(".text-black", $black);
+@include text-emphasis-variant(".text-black-50", rgba($black, 0.5));
+@include text-emphasis-variant(".text-black-75", rgba($black, 0.75));
+
+@include text-emphasis-variant(".text-gray", $gray-400);
+@include text-emphasis-variant(".text-gray-dark", $gray-600);
+@include text-emphasis-variant(".text-gray-darker", $gray-800);
+@include text-emphasis-variant(".text-gray-light", $gray-200);
+@include text-emphasis-variant(".text-gray-lighter", $gray-100);
+
+// Contextual dual text colors (for dark header/sidebar)
+@include text-emphasis-variant(".text-dual", $primary-dark);
+
+.page-header-dark #page-header,
+.sidebar-dark #sidebar {
+  @include text-emphasis-variant(".text-dual", $body-color-light);
+}
+
+// Default Color Theme
+@include text-emphasis-variant(".text-default", $primary);
+@include text-emphasis-variant(".text-default-dark", $primary-dark);
+@include text-emphasis-variant(".text-default-darker", $primary-darker);
+@include text-emphasis-variant(".text-default-light", $primary-light);
+@include text-emphasis-variant(".text-default-lighter", $primary-lighter);
+
+// Amethyst Color Theme
+@include text-emphasis-variant(".text-amethyst", $theme-amethyst-primary);
+@include text-emphasis-variant(".text-amethyst-dark", $theme-amethyst-dark);
+@include text-emphasis-variant(".text-amethyst-darker", $theme-amethyst-darker);
+@include text-emphasis-variant(".text-amethyst-light", $theme-amethyst-light);
+@include text-emphasis-variant(".text-amethyst-lighter", $theme-amethyst-lighter);
+
+// City Color Theme
+@include text-emphasis-variant(".text-city", $theme-city-primary);
+@include text-emphasis-variant(".text-city-dark", $theme-city-dark);
+@include text-emphasis-variant(".text-city-darker", $theme-city-darker);
+@include text-emphasis-variant(".text-city-light", $theme-city-light);
+@include text-emphasis-variant(".text-city-lighter", $theme-city-lighter);
+
+// Flat Color Theme
+@include text-emphasis-variant(".text-flat", $theme-flat-primary);
+@include text-emphasis-variant(".text-flat-dark", $theme-flat-dark);
+@include text-emphasis-variant(".text-flat-darker", $theme-flat-darker);
+@include text-emphasis-variant(".text-flat-light", $theme-flat-light);
+@include text-emphasis-variant(".text-flat-lighter", $theme-flat-lighter);
+
+// Modern Color Theme
+@include text-emphasis-variant(".text-modern", $theme-modern-primary);
+@include text-emphasis-variant(".text-modern-dark", $theme-modern-dark);
+@include text-emphasis-variant(".text-modern-darker", $theme-modern-darker);
+@include text-emphasis-variant(".text-modern-light", $theme-modern-light);
+@include text-emphasis-variant(".text-modern-lighter", $theme-modern-lighter);
+
+// Smooth Color Theme
+@include text-emphasis-variant(".text-smooth", $theme-smooth-primary);
+@include text-emphasis-variant(".text-smooth-dark", $theme-smooth-dark);
+@include text-emphasis-variant(".text-smooth-darker", $theme-smooth-darker);
+@include text-emphasis-variant(".text-smooth-light", $theme-smooth-light);
+@include text-emphasis-variant(".text-smooth-lighter", $theme-smooth-lighter);

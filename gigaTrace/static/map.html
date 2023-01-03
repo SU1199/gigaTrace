@@ -1,0 +1,44 @@
+<html>
+
+<body>
+    <h3>{{.FileLoc}}</h3>
+    {{range $i,$v := .Fields}}
+    <label for="">{{$v}}</label>
+    <select name="" id="{{$i}}">
+        <option value="DEFAULT">Select</option>
+        <option value="FROM_NO">From Number</option>
+        <option value="TO_NO">To Number</option>
+        <option value="DATE">Date</option>
+        <option value="TIME">Time</option>
+        <option value="DURATION">Duration</option>
+        <option value="C1_ID">CELL1</option>
+        <option value="C2_ID">CELL2</option>
+        <option value="TYPE">TYPE</option>
+        <option value="IMEI">IMEI</option>
+        <option value="IMSI">IMSI</option>
+        <option value="ROAMING">ROAMING</option>
+    </select>
+    <br>
+    {{end}}
+    <button onclick="submit()">Next</button>
+    <script>
+        function submit(){
+            payload = {}
+            for(i=0;i<parseInt({{.LenFields}});i++){
+                a = document.getElementById(i.toString()).value
+                payload[a]=i
+            }
+            console.log(payload)
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/map");
+
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.send(JSON.stringify(payload));
+
+            alert("File Submitted !")
+        }
+    </script>
+</body>
+</html>

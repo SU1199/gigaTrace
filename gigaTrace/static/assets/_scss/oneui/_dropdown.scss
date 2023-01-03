@@ -1,0 +1,41 @@
+//
+// Dropdown
+// --------------------------------------------------
+
+.dropdown-menu {
+  box-shadow: $dropdown-box-shadow;
+
+  &.dropdown-menu-md {
+    min-width: 200px;
+  }
+
+  &.dropdown-menu-lg,
+  &.dropdown-menu-xl,
+  &.dropdown-menu-xxl {
+    min-width: 300px;
+  }
+
+  &.dropdown-menu-mega {
+    transition: transform .25s ease-out, opacity .25s ease-out;
+    opacity: 0;
+    display: block;
+    visibility: hidden;
+    transform: translateY(50px);
+    transform-origin: top left;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    &.dropdown-menu-xl {
+      min-width: 450px;
+    }
+
+    &.dropdown-menu-xxl {
+      min-width: 600px;
+    }
+  }
+}

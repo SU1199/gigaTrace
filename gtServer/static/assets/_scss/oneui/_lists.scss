@@ -1,0 +1,63 @@
+//
+// Lists
+// --------------------------------------------------
+
+// Base List
+.list {
+  @include list-unstyled;
+
+  > li {
+    position: relative;
+  }
+
+  &.list-simple > li,
+  &-li-push > li {
+    margin-bottom: 1.25rem;
+  }
+
+  &.list-simple-mini > li,
+  &-li-push-sm > li {
+    margin-bottom: 0.625rem;
+  }
+}
+
+// Activity
+.list-activity {
+  > li {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.375rem;
+    padding-left: 2rem;
+
+    > i:first-child {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: inline-block;
+      width: 1.25rem;
+      height: 1.25rem;
+      line-height: 1.25rem;
+      text-align: center;
+    }
+  }
+
+  > li:not(:last-child) {
+    border-bottom: 1px solid $body-bg;
+  }
+}
+
+// Events
+.list-events {
+  > li {
+    margin-bottom: 0.25rem;
+  }
+
+  .js-event {
+    background-color: $info;
+    transition: transform 0.3s ease-out;
+
+    &:hover {
+      cursor: move;
+      transform: translateX(-0.25rem);
+    }
+  }
+}
